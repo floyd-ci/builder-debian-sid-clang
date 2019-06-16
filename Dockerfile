@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM debian:sid-slim
 
 RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
         ca-certificates \
