@@ -1,3 +1,5 @@
+language: minimal
+
 env:
   - LLVM_VERSION=6.0
   - LLVM_VERSION=7
