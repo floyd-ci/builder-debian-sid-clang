@@ -7,3 +7,8 @@ env:
 
 script:
   - docker build --build-arg LLVM_VERSION=$LLVM_VERSION --tag clang-$LLVM_VERSION .
+
+after_success:
+  - docker tag clang-$LLVM_VERSION floydci/debian-sid-clang:$LLVM_VERSION
+  - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
+  - docker push floydci/debian-sid-clang:$LLVM_VERSION
