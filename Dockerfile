@@ -1,10 +1,4 @@
-FROM debian:sid-slim
-
-RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
-        ca-certificates \
-        cmake \
-        ninja-build \
-    && rm -rf /var/lib/apt/lists/*
+FROM floydci/debian:unstable
 
 ARG LLVM_VERSION=7
 ARG EXPERIMENTAL
