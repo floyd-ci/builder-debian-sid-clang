@@ -4,9 +4,10 @@ env:
   - LLVM_VERSION=6.0
   - LLVM_VERSION=7
   - LLVM_VERSION=8
+  - LLVM_VERSION=9 EXPERIMENTAL=1
 
 script:
-  - docker build --build-arg LLVM_VERSION=$LLVM_VERSION --tag clang-$LLVM_VERSION .
+  - docker build --build-arg LLVM_VERSION=$LLVM_VERSION --build-arg EXPERIMENTAL=$EXPERIMENTAL --tag clang-$LLVM_VERSION .
 
 after_success:
   - docker tag clang-$LLVM_VERSION floydci/debian-sid-clang:$LLVM_VERSION
